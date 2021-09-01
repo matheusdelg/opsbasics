@@ -31,13 +31,21 @@ $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
 $PAGE->set_heading(get_string('dashboardheading', 'local_opsbasics'));
 $PAGE->set_context(context_system::instance());
 
-/*
 $pageContext = [
-    'newclient_btn' => get_string('newclient', 'local_opsbasics'),
-    'newunity_btn'  => get_string('newunity',  'local_opsbasics'),
-    'startimp_btn'  => get_string('startimp',  'local_opsbasics'),
+    'plugindescription' => get_string('plugindescription', 'local_opsbasics'),
+    'dashboardheading'  => get_string('dashboardheading', 'local_opsbasics'),
+
+    'newclient' => get_string('newclient', 'local_opsbasics'),
+    'newclient_description' => get_string('newclient_description', 'local_opsbasics'),
+
+    'newunity'  => get_string('newunity',  'local_opsbasics'),
+    'newunity_description' => get_string('newunity_description', 'local_opsbasics'),
+
+    'startimp'  => get_string('startimp',  'local_opsbasics'),
+    'startimp_description' => get_string('startimp_description', 'local_opsbasics'),
+    'pluginactions' => get_string('pluginactions', 'local_opsbasics'),
 ];
-*/
+
 echo $OUTPUT->header();
-//echo $OUTPUT->render_from_template('local_opsbasic/dashboard', $pageContext);
+echo $OUTPUT->render_from_template('local_opsbasics/dashboard', $pageContext);
 echo $OUTPUT->footer();

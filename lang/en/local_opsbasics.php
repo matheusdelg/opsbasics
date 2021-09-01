@@ -22,9 +22,16 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['plugintitle'] = 'Operations CODE8734';
-$string['plugindescription'] = 'Create, run and manage all the CODE8734 unities with just one click. Select one of the options bellow to start an operation.';
-$string['dashboardheading'] = 'Operations CODE8734';
-$string['newclient'] = 'New client';
-$string['newunity'] = 'New unity';
-$string['startimp'] = 'Start implantation';
+$string['plugintitle'] = 'Operações CODE8734';
+$string['plugindescription'] = 'Crie, implante e gerencie todas as unidades CODE8734 com apenas um clique. Selecione uma das opções abaixo para iniciar uma operação.';
+$string['pluginactions'] = "Ações";
+$string['dashboardheading'] = 'Operações CODE8734';
+
+$string['newclient'] = 'Novo cliente';
+$string['newclient_description'] = 'Toda unidade CODE8734 precisa de um franqueado. Preencha aqui as informações de um (ou mais) novo(s) franqueado(s) CODE8734.';
+
+$string['newunity'] = 'Nova unidade';
+$string['newunity_description'] = 'Escolha esta opção para preencher os dados da mais nova unidade CODE8734. É necessário ter em mãos as informações do e-mail de liberação de nova unidade.';
+
+$string['startimp'] = 'Iniciar implantação';
+$string['startimp_description'] = 'Mãos a obra! Escolha esta opção para iniciar os processos de liberação da nova unidade CODE8734. É preciso registrar o(s) franqueado(s) e a unidade em outras opções desta aplicaçao.';
