@@ -61,6 +61,10 @@ Com os dados iniciais preenchidos, o analista enfim deve selecionar a opção <b
 | id                  | INT(10) | PRIMARY KEY AUTO_INCREMENT |
 | name                | VARCHAR | NOT NULL |
 | unity_code          | VARCHAR | NOT NULL |
+| address             | VARCHAR | NOT NULL |
+| city                | VARCHAR | NOT NULL |
+| state               | VARCHAR | NOT NULL |
+| size                | VARCHAR | NOT NULL |
 | mail_pattern        | VARCHAR | NOT NULL |
 | est_ops_date        | DATE    | NOT NULL |
 | real_ops_date       | DATE    |          |
@@ -75,3 +79,9 @@ Com os dados iniciais preenchidos, o analista enfim deve selecionar a opção <b
 | sap_pswd_com        | VARCHAR |          |
 | sap_pswd_ped        | VARCHAR |          |
 
+**Tabela `caf_opsbasics_client_has_unity`**:
+
+| Campo     | Tipo    |             |
+|-----------|---------|-------------|
+| client_id | INTEGER | FOREIGN KEY |
+| unity_id  | INTEGER | FOREIGN KEY |
