@@ -22,16 +22,32 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['clientediturl'] = '/local/opsbasics/client/edit.php';
+$string['clientviewurl'] = '/local/opsbasics/client/view.php';
+$string['dashboardurl'] = '/local/opsbasics/index.php';
+
 $string['plugintitle'] = 'Operações CODE8734';
 $string['plugindescription'] = 'Crie, implante e gerencie todas as unidades CODE8734 com apenas um clique. Selecione uma das opções abaixo para iniciar uma operação.';
+
 $string['pluginactions'] = "Ações";
 $string['dashboardheading'] = 'Operações CODE8734';
 
 $string['newclient'] = 'Novo cliente';
 $string['newclient_description'] = 'Toda unidade CODE8734 precisa de um franqueado. Preencha aqui as informações de um (ou mais) novo(s) franqueado(s) CODE8734.';
+$string['clientfullname'] = 'Nome completo';
+$string['clientpersonalemail'] = 'E-mail de contato (pessoal ou institucional)';
+$string['clientphonenumber'] = 'Telefone';
+$string['clientmail'] = 'E-mail CODE8734 do franqueado';
+$string['clientcreatetimestamp'] = 'Data/hora de criação';
+
+
 
 $string['newunity'] = 'Nova unidade';
 $string['newunity_description'] = 'Escolha esta opção para preencher os dados da mais nova unidade CODE8734. É necessário ter em mãos as informações do e-mail de liberação de nova unidade.';
 
 $string['startimp'] = 'Iniciar implantação';
 $string['startimp_description'] = 'Mãos a obra! Escolha esta opção para iniciar os processos de liberação da nova unidade CODE8734. É preciso registrar o(s) franqueado(s) e a unidade em outras opções desta aplicaçao.';
+
+$string['clientheading'] = 'Franqueados CODE8734';
+$string['client_description'] = 'Crie ou edite as informações de um franqueado CODE8734 neste formulário.';
+$string['noclientselected'] = 'Nenhum cliente selecionado. Selecione umf franqueado na pagina de Dashboard e clique na opção "novo cliente".';

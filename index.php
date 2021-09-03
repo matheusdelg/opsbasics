@@ -22,14 +22,8 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 require_once('../../config.php');
 require_login();
-
-$PAGE->set_url('/local/opsbasics/dashboard.php');
-$PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
-$PAGE->set_heading(get_string('dashboardheading', 'local_opsbasics'));
-$PAGE->set_context(context_system::instance());
 
 $pageContext = [
     'plugindescription' => get_string('plugindescription', 'local_opsbasics'),
@@ -37,14 +31,21 @@ $pageContext = [
 
     'newclient' => get_string('newclient', 'local_opsbasics'),
     'newclient_description' => get_string('newclient_description', 'local_opsbasics'),
+    'clientediturl' => get_string('clientediturl', 'local_opsbasics'),
 
     'newunity'  => get_string('newunity',  'local_opsbasics'),
     'newunity_description' => get_string('newunity_description', 'local_opsbasics'),
+    'unityediturl' => get_string('unityediturl', 'local_opsbasics'),
 
     'startimp'  => get_string('startimp',  'local_opsbasics'),
     'startimp_description' => get_string('startimp_description', 'local_opsbasics'),
     'pluginactions' => get_string('pluginactions', 'local_opsbasics'),
 ];
+
+$PAGE->set_url('/local/opsbasics/index.php');
+$PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
+$PAGE->set_heading(get_string('dashboardheading', 'local_opsbasics'));
+$PAGE->set_context(context_system::instance());
 
 echo $OUTPUT->header();
 echo $OUTPUT->render_from_template('local_opsbasics/dashboard', $pageContext);
