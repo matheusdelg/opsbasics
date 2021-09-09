@@ -16,14 +16,15 @@
 }}
 
 <div class="container d-flex flex-column align-content-end" style="min-height:300px">
-	<h1 class="mb-3">{{client.full_name}}</h1>
-	<p><strong>Nome completo:</strong>   {{client.full_name}}</p>
-	<p><strong>E-mail pessoal:</strong>  {{client.personal_email}}</p>
-	<p><strong>Telefone:</strong>        {{client.phone_number}}</p>
-	<p><strong>Data de criação:</strong> {{client.create_timestamp}}</p>
-	<p><strong>E-mail CODE8734:</strong> {{client.client_mail}}</p>
+	 <h1>CODE8734 {{unity.city}} - {{unity.state}}</h1>
+	 <h3 class="mb-3">{{unity.name}}</h3>
+	<p><strong>Nome da unidade:</strong>   {{unity.name}}</p>
+	<p><strong>Endereço:</strong>        {{unity.address}}</p>
+	<p><strong>E-mail da unidade:</strong>  {{unity.unity_email}}</p>
+	<p><strong>Modalidade:</strong>        {{unity.size}}</p>
+	<p><strong>Data de criação:</strong> {{unity.create_timestamp}}</p>
 	<div class="container row mt-auto">
-		<a href="{{clientediturl}}" class="btn btn-primary mr-2">Editar</a>
+		<a href="{{unityediturl}}" class="btn btn-primary mr-2">Editar</a>
 		<a href="{{dashboardurl}}" class="btn btn-secondary ml-2">Dashboard</a>
 	</div>
 </div>

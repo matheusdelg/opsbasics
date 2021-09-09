@@ -70,9 +70,7 @@ $string['unitysappswd'] = 'Senha SAP da unidade';
 $string['unitysappswdcom'] = 'Senha SAP comercial';
 $string['unitysappswdped'] = 'Senha SAP pedagógico';
 $string['unityaddedsuccess'] = 'Unidade adicionada/editada com sucesso na base de dados.';
-
-
-
+$string['unitysizes'] = ['Intinerante', 'Compacta', 'Mini', 'Mega'];
 
 $string['startimp'] = 'Iniciar implantação';
 $string['startimp_description'] = 'Mãos a obra! Escolha esta opção para iniciar os processos de liberação da nova unidade CODE8734. É preciso registrar o(s) franqueado(s) e a unidade em outras opções desta aplicaçao.';
@@ -84,3 +82,6 @@ $string['noclientselected'] = 'Nenhum cliente selecionado. Selecione um franquea
 $string['unityheading'] = 'Unidades CODE8734';
 $string['unity_description'] = 'Crie ou edite as informações de uma unidade CODE8734 neste formulário.';
 $string['nounityselected'] = 'Nenhuma unidade selecionada. Selecione uma unidade na pagina de Dashboard e clique na opção "nova unidade".';
+
+$string['errornounityid'] = 'Unidade não selecionada ou inválida';
+$string['errornoclientid'] = 'Franqueado não selecionado ou inválido';

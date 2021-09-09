@@ -24,39 +24,46 @@
 
 
 require_once('../../../config.php');
-require_once('../classes/client.php');
+require_once('../classes/unity.php');
 require_login();
 
 $id = optional_param('id', 0, PARAM_INT);
 
 $context = [
     'dashboardurl' => get_string('dashboardurl', 'local_opsbasics'),
-    'clientediturl' => get_string('clientediturl', 'local_opsbasics'),
+    'unityediturl' => get_string('unityediturl', 'local_opsbasics'),
 ];
+
+
+
 
 $param = array();
 if(!empty($id)){
     $param = array('id' => $id);
-    $context['clientediturl'] .= '?id='. $id;
+    $context['unityediturl'] .= '?id='. $id;
 
-    $client = (array) Client::getById($id);
-    $client['create_timestamp'] = Client::convertTimestamp($client);
+    $unity = (array) Unity::getById($id);
 
-    if (empty($client['id'])) {
-        print_error(get_string('errornoclientid', 'local_opsbasics'));
+    $unity['create_timestamp'] = Unity::convertTimestamp($unity);
+    $unity['size'] = Unity::getSize($unity);
+
+    if (empty($unity['id'])) {
+        print_error(get_string('errornounityid', 'local_opsbasics'));
     }
 
-    $context['client'] = $client;
+    $context['unity'] = $unity;
 }
 else {
-    print_error(get_string('errornoclientid', 'local_opsbasics'));
+    print_error(get_string('errornounityid', 'local_opsbasics'));
 }
 
-$PAGE->set_url('/local/opsbasics/client/view.php', $param);
+
+
+$PAGE->set_url('/local/opsbasics/unity/view.php', $param);
 $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
-$PAGE->set_heading(get_string('clientheading', 'local_opsbasics'));
+$PAGE->set_heading(get_string('unityheading', 'local_opsbasics'));
 $PAGE->set_context(context_system::instance());
 
 echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_opsbasics/clientview', $context);
+echo $OUTPUT->render_from_template('local_opsbasics/unityview', $context);
 echo $OUTPUT->footer();

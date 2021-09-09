@@ -26,6 +26,17 @@ require_once('../../../config.php');
 
 class Unity {
 
+    public static function convertTimestamp($data) {
+        $ts_convert = new DateTime();
+        $ts_convert->setTimestamp(intval($data['create_timestamp']));
+        return userdate($ts_convert->getTimestamp());
+    }
+
+    public static function getSize($data) {
+        $names = ['Intinerante', 'Compacta', 'Mini', 'Mega'];
+        return $names[$data['size']];
+    }
+
     public static function getById($id) {
         global $DB;
 
