@@ -34,7 +34,12 @@ class Client {
 
     public static function save($data) {
         global $DB;
-        
-        $DB->insert_record('opsbasics_clients', $data);
+
+        if (!empty($data->id)) {
+            $DB->update_record('opsbasics_clients', $data);
+        }
+        else {
+            $DB->insert_record('opsbasics_clients', $data);
+        } 
     }
 }

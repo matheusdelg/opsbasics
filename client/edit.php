@@ -30,18 +30,26 @@ require_once('../classes/client.php');
 require_login();
 
 
-$id = optional_param('id', 1, PARAM_INT);
+$id = optional_param('id', 0, PARAM_INT);
+
+if(!empty($id)) {
+    $param = ['id' => $id];
+}
+
+$PAGE->set_url('/local/opsbasics/client/view.php', $param);
+$PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
+$PAGE->set_heading(get_string('clientheading', 'local_opsbasics'));
+$PAGE->set_context(context_system::instance());
 
 $context = [
     'dashboardurl' => get_string('dashboardurl', 'local_opsbasics'),
     'clientediturl' => get_string('clientediturl', 'local_opsbasics'),
 ];
 
+$mform = new ClientForm($id);
 
-$mform = new ClientForm();
 
 if (!empty($id)) {
-
     $mform->set_data(Client::getById($id));
 }
 
@@ -55,18 +63,11 @@ if ($mform->is_cancelled()) {
         redirect(get_string('dashboardurl', 'local_opsbasics'));
     }
 } else if ($fromform = $mform->get_data()) {
-  //In this case you process validated data. $mform->get_data() returns data posted in form.
-  Client::save($fromform);
-  redirect(get_string('clientviewurl', 'local_opsbasics').'?id='.($id+1));
+    //In this case you process validated data. $mform->get_data() returns data posted in form.
+    Client::save($fromform);
+    redirect(get_string('dashboardurl', 'local_opsbasics'), get_string('clientaddedsuccess', 'local_opsbasics'));      
 }
-
-
-$PAGE->set_url('/local/opsbasics/client/view.php', $param);
-$PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
-$PAGE->set_heading(get_string('clientheading', 'local_opsbasics'));
-$PAGE->set_context(context_system::instance());
 
 echo $OUTPUT->header();
 $mform->display();
-//echo $OUTPUT->render_from_template('local_opsbasics/clientedit', $context);
 echo $OUTPUT->footer();

@@ -39,7 +39,7 @@ Com os dados iniciais preenchidos, o analista enfim deve selecionar a opção <b
 - Criar um usuário no CAF, contendo:
     - Login: padrão CODE8734
     - Senha temporária: 123456-Cc
-    - 
+    - Sincronização de coortes
 
 ## Tabelas
 

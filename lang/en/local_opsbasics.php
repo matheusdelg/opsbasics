@@ -24,6 +24,8 @@
 
 $string['clientediturl'] = '/local/opsbasics/client/edit.php';
 $string['clientviewurl'] = '/local/opsbasics/client/view.php';
+$string['unityediturl'] = '/local/opsbasics/unity/edit.php';
+$string['unityviewurl'] = '/local/opsbasics/unity/view.php';
 $string['dashboardurl'] = '/local/opsbasics/index.php';
 
 $string['plugintitle'] = 'Operações CODE8734';
@@ -38,16 +40,47 @@ $string['clientfullname'] = 'Nome completo';
 $string['clientpersonalemail'] = 'E-mail de contato (pessoal ou institucional)';
 $string['clientphonenumber'] = 'Telefone';
 $string['clientmail'] = 'E-mail CODE8734 do franqueado';
-$string['clientcreatetimestamp'] = 'Data/hora de criação';
-
-
+$string['clientcreatetimestamp'] = 'Data/hora de criação/edição';
+$string['clientaddedsuccess'] = 'Cliente adicionado/editado com sucesso na base de dados.';
+$string['clientinfo'] = 'Dados do franqueado';
 
 $string['newunity'] = 'Nova unidade';
 $string['newunity_description'] = 'Escolha esta opção para preencher os dados da mais nova unidade CODE8734. É necessário ter em mãos as informações do e-mail de liberação de nova unidade.';
+$string['unitybasicinfo'] = 'Informações básicas';
+$string['unityfullname'] = 'Nome da unidade';
+$string['unitycode'] = 'Código da unidade';
+$string['unityaddress'] = 'Endereço';
+$string['unitycity'] = 'Cidade';
+$string['unitystate'] = 'Estado (UF)';
+$string['unitysize'] = 'Tamanho/Modalidade';
+$string['mailpattern'] = 'Nome de e-mail da unidade';
+$string['unitydateinfo'] = 'Datas';
+$string['unitymailinfo'] = 'Contas de e-mail';
+$string['unitysapinfo'] = 'Gama SAP';
+$string['unityestopsdate'] = 'Data estimada para o início da operação';
+$string['unityrealopsdate'] = 'Data real do início da operação';
+$string['unitycreatetimestamp'] = 'Data/hora de criação/edição';
+$string['unitycomemail'] = 'E-mail comercial da unidade';
+$string['unitypedemail'] = 'E-mail pedagógico da unidade';
+$string['unityemail'] = 'E-mail geral da unidade';
+$string['unitysaplogin'] = 'Login SAP da unidade';
+$string['unitysaplogincom'] = 'Login SAP comercial';
+$string['unitysaploginped'] = 'Login SAP pedagógico';
+$string['unitysappswd'] = 'Senha SAP da unidade';
+$string['unitysappswdcom'] = 'Senha SAP comercial';
+$string['unitysappswdped'] = 'Senha SAP pedagógico';
+$string['unityaddedsuccess'] = 'Unidade adicionada/editada com sucesso na base de dados.';
+
+
+
 
 $string['startimp'] = 'Iniciar implantação';
 $string['startimp_description'] = 'Mãos a obra! Escolha esta opção para iniciar os processos de liberação da nova unidade CODE8734. É preciso registrar o(s) franqueado(s) e a unidade em outras opções desta aplicaçao.';
 
 $string['clientheading'] = 'Franqueados CODE8734';
 $string['client_description'] = 'Crie ou edite as informações de um franqueado CODE8734 neste formulário.';
-$string['noclientselected'] = 'Nenhum cliente selecionado. Selecione umf franqueado na pagina de Dashboard e clique na opção "novo cliente".';
+$string['noclientselected'] = 'Nenhum cliente selecionado. Selecione um franqueado na pagina de Dashboard e clique na opção "novo cliente".';
+
+$string['unityheading'] = 'Unidades CODE8734';
+$string['unity_description'] = 'Crie ou edite as informações de uma unidade CODE8734 neste formulário.';
+$string['nounityselected'] = 'Nenhuma unidade selecionada. Selecione uma unidade na pagina de Dashboard e clique na opção "nova unidade".';

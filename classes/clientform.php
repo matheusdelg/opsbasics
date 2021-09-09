@@ -29,11 +29,23 @@ require_once('../../../config.php');
 require_once("$CFG->libdir/formslib.php");
 
 class ClientForm extends moodleform {
+
+    public function __construct($id) {
+        $this->id = $id;
+        parent::__construct();
+    }
+
     //Add elements to form
     public function definition() {
         global $CFG;
        
         $mform = $this->_form; 
+
+        $mform->addElement('header', 'clientinfo', get_string('clientinfo', 'local_opsbasics'));
+
+        $mform->addElement('text',  'id',  'ID');
+        $mform->setType('id', PARAM_NOTAGS);                   
+        $mform->setDefault('id', $id);      
 
         // Nome completo (full_name):
         $mform->addElement('text',  'full_name',  get_string('clientfullname', 'local_opsbasics'));
@@ -59,6 +71,7 @@ class ClientForm extends moodleform {
         $mform->addElement('date_time_selector',  'create_timestamp',  get_string('clientcreatetimestamp', 'local_opsbasics'));
         $mform->setType('create_timestamp', PARAM_NOTAGS);                   
         $mform->setDefault('create_timestamp', '');   
+        $mform->disabledIf('create_timestamp', '');
 
         $this->add_action_buttons();
     }

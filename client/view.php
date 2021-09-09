@@ -38,7 +38,17 @@ $param = array();
 if(!empty($id)){
     $param = array('id' => $id);
     $context['clientediturl'] .= '?id='. $id;
-    $context['client'] = (array) Client::getById($id);
+    $client = (array) Client::getById($id);
+
+    if (empty($client['id'])) {
+        print_error('no_client_selected', 'local_opsbasics');
+    }
+
+    $ts_convert = new DateTime();
+    $ts_convert->setTimestamp(intval($client['create_timestamp']));
+    $client['create_timestamp'] = userdate($ts_convert->getTimestamp());
+
+    $context['client'] = $client;
 }
 else {
     print_error('no_client_selected', 'local_opsbasics');

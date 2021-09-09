@@ -15,15 +15,15 @@
 	along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-<h3>Informações do cliente</h3>
-
-<li>
-	<ul>{{client.full_name}}</ul>
-	<ul>{{client.personal_email}}</ul>
-	<ul>{{client.phone_number}}</ul>
-	<ul>{{client.create_timestamp}}</ul>
-	<ul>{{client.client_mail}}</ul>
-</li>
-
-<a href="{{clientediturl}}" class="btn btn-primary">Editar</a>
-<a href="{{dashboardurl}}" class="btn btn-secondary">Dashboard</a>
+<div class="container d-flex flex-column align-content-end" style="height:300px">
+	<h1 class="mb-3">{{client.full_name}}</h1>
+	<p><strong>Nome completo:</strong>   {{client.full_name}}</p>
+	<p><strong>E-mail pessoal:</strong>  {{client.personal_email}}</p>
+	<p><strong>Telefone:</strong>        {{client.phone_number}}</p>
+	<p><strong>Data de criação:</strong> {{client.create_timestamp}}</p>
+	<p><strong>E-mail CODE8734:</strong> {{client.client_mail}}</p>
+	<div class="container row mt-auto">
+		<a href="{{clientediturl}}" class="btn btn-primary mr-2">Editar</a>
+		<a href="{{dashboardurl}}" class="btn btn-secondary ml-2">Dashboard</a>
+	</div>
+</div>
