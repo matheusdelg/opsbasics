@@ -43,7 +43,7 @@ class ClientForm extends moodleform {
 
         $mform->addElement('header', 'clientinfo', get_string('clientinfo', 'local_opsbasics'));
 
-        $mform->addElement('text',  'id',  'ID');
+        $mform->addElement('hidden',  'id',  'ID');
         $mform->setType('id', PARAM_NOTAGS);                   
         $mform->setDefault('id', $id);      
 

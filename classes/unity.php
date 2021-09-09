@@ -22,9 +22,17 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once('../../../config.php');
+include_once('../../../config.php');
 
 class Unity {
+
+    public static function getAll() {
+        global $DB;
+
+        $response = $DB->get_records('opsbasics_unities');
+
+        return array_values($response);
+    }
 
     public static function convertTimestamp($data) {
         $ts_convert = new DateTime();

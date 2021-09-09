@@ -23,6 +23,7 @@
  */
 
 require_once('../../config.php');
+require_once('classes/unity.php');
 require_login();
 
 $pageContext = [
@@ -32,15 +33,19 @@ $pageContext = [
     'newclient' => get_string('newclient', 'local_opsbasics'),
     'newclient_description' => get_string('newclient_description', 'local_opsbasics'),
     'clientediturl' => get_string('clientediturl', 'local_opsbasics'),
+    'clientviewurl' => get_string('clientviewurl', 'local_opsbasics'),
 
     'newunity'  => get_string('newunity',  'local_opsbasics'),
     'newunity_description' => get_string('newunity_description', 'local_opsbasics'),
     'unityediturl' => get_string('unityediturl', 'local_opsbasics'),
+    'unityviewurl' => get_string('unityviewurl', 'local_opsbasics'),
 
     'startimp'  => get_string('startimp',  'local_opsbasics'),
     'startimp_description' => get_string('startimp_description', 'local_opsbasics'),
     'pluginactions' => get_string('pluginactions', 'local_opsbasics'),
 ];
+
+$pageContext['unity'] = (array) Unity::getAll();
 
 $PAGE->set_url('/local/opsbasics/index.php');
 $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
