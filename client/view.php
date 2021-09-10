@@ -35,6 +35,15 @@ $context = [
 ];
 
 $param = array();
+
+$PAGE->set_url('/local/opsbasics/client/view.php', $param);
+$PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
+$PAGE->set_heading(get_string('clientheading', 'local_opsbasics'));
+$PAGE->set_context(context_system::instance());
+
+$PAGE->navbar->add(get_string('clientheading', 'local_opsbasics'),
+                   get_string('clientediturl', 'local_opsbasics'));
+
 if(!empty($id)){
     $param = array('id' => $id);
     $context['clientediturl'] .= '?id='. $id;
@@ -52,10 +61,7 @@ else {
     print_error(get_string('errornoclientid', 'local_opsbasics'));
 }
 
-$PAGE->set_url('/local/opsbasics/client/view.php', $param);
-$PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
-$PAGE->set_heading(get_string('clientheading', 'local_opsbasics'));
-$PAGE->set_context(context_system::instance());
+
 
 echo $OUTPUT->header();
 echo $OUTPUT->render_from_template('local_opsbasics/clientview', $context);

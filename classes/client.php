@@ -32,6 +32,14 @@ class Client {
         return userdate($ts_convert->getTimestamp());
     }
 
+    public static function getAll() {
+        global $DB;
+
+        $response = $DB->get_records('opsbasics_clients');
+
+        return array_values($response);
+    }
+
     public static function getById($id) {
         global $DB;
 

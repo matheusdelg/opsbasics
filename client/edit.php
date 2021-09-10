@@ -41,6 +41,9 @@ $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
 $PAGE->set_heading(get_string('clientheading', 'local_opsbasics'));
 $PAGE->set_context(context_system::instance());
 
+$PAGE->navbar->add(get_string('clientheading', 'local_opsbasics'),
+                   get_string('clientediturl', 'local_opsbasics'));
+
 $context = [
     'dashboardurl' => get_string('dashboardurl', 'local_opsbasics'),
     'clientediturl' => get_string('clientediturl', 'local_opsbasics'),

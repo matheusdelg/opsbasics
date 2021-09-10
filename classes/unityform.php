@@ -50,7 +50,8 @@ class UnityForm extends moodleform {
         // Nome da unidade:
         $mform->addElement('text',  'name',  get_string('unityfullname', 'local_opsbasics'));
         $mform->setType('name', PARAM_NOTAGS);                   
-        $mform->setDefault('name', '');   
+        $mform->setDefault('name', ''); 
+        $mform->addRule('name', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server'); 
         
         // Código da unidade:
         $mform->addElement('text',  'unity_code',  get_string('unitycode', 'local_opsbasics'));
@@ -65,25 +66,26 @@ class UnityForm extends moodleform {
         // Cidade:
         $mform->addElement('text',  'city',  get_string('unitycity', 'local_opsbasics'));
         $mform->setType('city', PARAM_NOTAGS);                   
-        $mform->setDefault('city', '');   
+        $mform->addRule('city', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server'); 
 
         // Estado (UF):
         $mform->addElement('text',  'state',  get_string('unitystate', 'local_opsbasics'));
         $mform->setType('state', PARAM_NOTAGS);                   
-        $mform->setDefault('state', '');   
+        $mform->addRule('state', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server'); 
+
 
         // Tamanho da unidade:
         $sizes = ['Intinerante', 'Compacta', 'Mini', 'Mega'];
         $mform->addElement('select',  'size',  get_string('unitysize', 'local_opsbasics'),  $sizes);
-        $mform->setType('size', PARAM_NOTAGS);                   
-        $mform->setDefault('size', '');   
+        $mform->setType('size', PARAM_NOTAGS);                    
 
         $mform->addElement('header', 'unitymailinfo', get_string('unitymailinfo', 'local_opsbasics'));
 
         // Corpo do e-mail unidade:
         $mform->addElement('text',  'mail_pattern',  get_string('mailpattern', 'local_opsbasics'));
         $mform->setType('mail_pattern', PARAM_NOTAGS);                   
-        $mform->setDefault('mail_pattern', '');    
+        $mform->setDefault('mail_pattern', ''); 
+        $mform->addRule('mail_pattern', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server');    
 
         // E-mail comercial:
         $mform->addElement('text',  'com_email',  get_string('unitycomemail', 'local_opsbasics'));

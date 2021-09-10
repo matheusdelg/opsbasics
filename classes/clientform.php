@@ -45,32 +45,29 @@ class ClientForm extends moodleform {
 
         $mform->addElement('hidden',  'id',  'ID');
         $mform->setType('id', PARAM_NOTAGS);                   
-        $mform->setDefault('id', $id);      
+        $mform->setDefault('id', $this->id);      
 
         // Nome completo (full_name):
         $mform->addElement('text',  'full_name',  get_string('clientfullname', 'local_opsbasics'));
         $mform->setType('full_name', PARAM_NOTAGS);                   
-        $mform->setDefault('full_name', '');   
+        $mform->addRule('full_name', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server');
         
         // E-mail pessoal (personal_email):
         $mform->addElement('text',  'personal_email',  get_string('clientpersonalemail', 'local_opsbasics'));
         $mform->setType('personal_email', PARAM_NOTAGS);                   
-        $mform->setDefault('personal_email', '');   
+        $mform->addRule('personal_email', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server');
 
         // Telefone (phone_number):
         $mform->addElement('text',  'phone_number',  get_string('clientphonenumber', 'local_opsbasics'));
         $mform->setType('phone_number', PARAM_NOTAGS);                   
-        $mform->setDefault('phone_number', '');   
 
         // E-mail do franqueado (client_mail):
         $mform->addElement('text',  'client_mail',  get_string('clientmail', 'local_opsbasics'));
         $mform->setType('client_mail', PARAM_NOTAGS);                   
-        $mform->setDefault('client_mail', '');   
 
         // Data de criação (create_timestamp):
         $mform->addElement('date_time_selector',  'create_timestamp',  get_string('clientcreatetimestamp', 'local_opsbasics'));
         $mform->setType('create_timestamp', PARAM_NOTAGS);                   
-        $mform->setDefault('create_timestamp', '');   
         $mform->disabledIf('create_timestamp', '');
 
         $this->add_action_buttons();

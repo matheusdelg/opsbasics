@@ -43,6 +43,10 @@ $pageContext = [
     'startimp'  => get_string('startimp',  'local_opsbasics'),
     'startimp_description' => get_string('startimp_description', 'local_opsbasics'),
     'pluginactions' => get_string('pluginactions', 'local_opsbasics'),
+
+    'tooltipview' => get_string('tooltipview', 'local_opsbasics'),
+    'tooltipedit' => get_string('tooltipedit', 'local_opsbasics'),
+    'tooltiponboarding' => get_string('tooltiponboarding', 'local_opsbasics'),
 ];
 
 $pageContext['unity'] = (array) Unity::getAll();
