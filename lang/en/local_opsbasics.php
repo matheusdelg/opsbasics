@@ -30,7 +30,6 @@ $string['dashboardurl'] = '/local/opsbasics/index.php';
 
 $string['plugintitle'] = 'Operações CODE8734';
 $string['plugindescription'] = 'Crie, implante e gerencie todas as unidades CODE8734 com apenas um clique. Selecione uma das opções abaixo para iniciar uma operação.';
-$string['formrequired'] = 'Este campo é obrigatório.';
 
 $string['pluginactions'] = "Ações";
 $string['dashboardheading'] = 'Operações CODE8734';
@@ -90,4 +89,5 @@ $string['errornoclientid'] = 'Franqueado não selecionado ou inválido';
 $string['tooltipview'] = 'Ver detalhes';
 $string['tooltipedit'] = 'Editar';
 $string['tooltiponboarding'] = 'Onboarding';
-
+$string['tooltipdelete'] = 'Excluir';
+$string['formrequired'] = 'Este campo é obrigatório.';

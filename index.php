@@ -24,6 +24,7 @@
 
 require_once('../../config.php');
 require_once('classes/unity.php');
+require_once('classes/client.php');
 require_login();
 
 $pageContext = [
@@ -46,10 +47,12 @@ $pageContext = [
 
     'tooltipview' => get_string('tooltipview', 'local_opsbasics'),
     'tooltipedit' => get_string('tooltipedit', 'local_opsbasics'),
+    'tooltipdelete' => get_string('tooltipdelete', 'local_opsbasics'),
     'tooltiponboarding' => get_string('tooltiponboarding', 'local_opsbasics'),
 ];
 
-$pageContext['unity'] = (array) Unity::getAll();
+$pageContext['unity']  = (array) Unity::getAll();
+$pageContext['client'] = (array) Client::getAll();
 
 $PAGE->set_url('/local/opsbasics/index.php');
 $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));

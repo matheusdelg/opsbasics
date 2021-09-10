@@ -15,20 +15,16 @@
 	along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-<h4>Unidades CODE8734</h4>
+<h4>Franqueados CODE8734</h4>
 <div class="list-group w-100 py-3">
-	{{#unity}}
+	{{#client}}
 	<div class="container list-group-item list-group-item-action">
 		<div class="d-flex w-100 justify-content-between">
 			<div class="mr-auto d-flex justify-content-around">
-				<h5 class="mr-2">{{name}}</h5>
-				<small>{{city}} - {{state}}</small>					
+				<h5 class="mr-2">{{full_name}}</h5>
+				<small>{{client_mail}}</small>					
 			</div>
 			<div class="d-flex">
-				<a href="{{unityviewurl}}?id={{id}}" class="mx-2"
-				data-toggle="tooltip" data-placement="top" title="{{tooltiponboarding}}">
-					<i class="fa fa-rocket"></i>
-			 	</a>
 				<a href="{{unityviewurl}}?id={{id}}" class="mx-2"
 				data-toggle="tooltip" data-placement="top" title="{{tooltipview}}">
 				   	<i class="fa fa-eye"></i>
@@ -44,5 +40,5 @@
 			</div>
 		</div>
 	</div>
-	{{/unity}}
+	{{/client}}
 </div>
