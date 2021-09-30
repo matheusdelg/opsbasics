@@ -62,6 +62,11 @@ $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
 $PAGE->set_heading(get_string('unityheading', 'local_opsbasics'));
 $PAGE->set_context(context_system::instance());
 
-echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_opsbasics/unityview', $context);
-echo $OUTPUT->footer();
+if (has_capability('local/opsbasics:managefranchising', $context)) {
+    echo $OUTPUT->header();
+    echo $OUTPUT->render_from_template('local_opsbasics/unityview', $pageContext);
+    echo $OUTPUT->footer();
+}
+else {
+    print_error(get_string('errornocapability', 'local_opsbasics'));
+}

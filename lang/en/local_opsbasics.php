@@ -85,6 +85,7 @@ $string['nounityselected'] = 'Nenhuma unidade selecionada. Selecione uma unidade
 
 $string['errornounityid'] = 'Unidade não selecionada ou inválida';
 $string['errornoclientid'] = 'Franqueado não selecionado ou inválido';
+$string['errornocapability'] = 'Você não tem permissão para acessar esta página';
 
 $string['tooltipview'] = 'Ver detalhes';
 $string['tooltipedit'] = 'Editar';

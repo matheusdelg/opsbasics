@@ -61,8 +61,11 @@ else {
     print_error(get_string('errornoclientid', 'local_opsbasics'));
 }
 
-
-
-echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_opsbasics/clientview', $context);
-echo $OUTPUT->footer();
+if (has_capability('local/opsbasics:managefranchising', $context)) {
+    echo $OUTPUT->header();
+    echo $OUTPUT->render_from_template('local_opsbasics/clientview', $pageContext);
+    echo $OUTPUT->footer();
+}
+else {
+    print_error(get_string('errornocapability', 'local_opsbasics'));
+}

@@ -53,12 +53,19 @@ $pageContext = [
 
 $pageContext['unity']  = (array) Unity::getAll();
 $pageContext['client'] = (array) Client::getAll();
+$context = context_system::instance();
 
 $PAGE->set_url('/local/opsbasics/index.php');
 $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
 $PAGE->set_heading(get_string('dashboardheading', 'local_opsbasics'));
-$PAGE->set_context(context_system::instance());
+$PAGE->set_context($context);
 
-echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_opsbasics/dashboard', $pageContext);
-echo $OUTPUT->footer();
+if (has_capability('local/opsbasics:managefranchising', $context)) {
+    echo $OUTPUT->header();
+    echo $OUTPUT->render_from_template('local_opsbasics/dashboard', $pageContext);
+    echo $OUTPUT->footer();
+}
+else {
+    print_error(get_string('errornocapability', 'local_opsbasics'));
+}
+

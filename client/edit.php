@@ -71,6 +71,11 @@ if ($mform->is_cancelled()) {
     redirect(get_string('dashboardurl', 'local_opsbasics'), get_string('clientaddedsuccess', 'local_opsbasics'));      
 }
 
-echo $OUTPUT->header();
-$mform->display();
-echo $OUTPUT->footer();
+if (has_capability('local/opsbasics:managefranchising', $context)) {
+    echo $OUTPUT->header();
+    $mform->display();
+    echo $OUTPUT->footer();    
+}
+else {
+    print_error(get_string('errornocapability', 'local_opsbasics'));
+}

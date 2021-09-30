@@ -17,12 +17,18 @@
 /**
  * Provides meta-data about the plugin.
  *
- * @package     local_opsbasics
- * @author      2021 Matheus Delgado <https://github.com/matheusdelg>
+ * @package     type_pluginname
+ * @author      {CURRENT_YEAR} {author_fullname} <{author_link}>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->component = 'local_opsbasics';
-$plugin->release = 'v1.0.0';
-$plugin->version = 2021090100;
-$plugin->requires  = 2020061500;
+$capabilities = [
+    'local/opsbasics:managefranchising' => [
+        'riskbitmask' => RISK_MANAGETRUST,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => [
+            'admin' => CAP_ALLOW,
+        ],
+    ],
+ ];
