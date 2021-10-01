@@ -17,8 +17,8 @@
 /**
  * Provides meta-data about the plugin.
  *
- * @package     type_pluginname
- * @author      {CURRENT_YEAR} {author_fullname} <{author_link}>
+ * @package     local_opsbasics
+ * @author      2021 Matheus Delgado <https://github.com/matheusdelg>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -29,7 +29,7 @@ require_login();
 
 $id = optional_param('id', 0, PARAM_INT);
 
-$context = [
+$pageContext = [
     'dashboardurl' => get_string('dashboardurl', 'local_opsbasics'),
     'unityediturl' => get_string('unityediturl', 'local_opsbasics'),
 ];
@@ -38,7 +38,7 @@ $context = [
 $param = array();
 if(!empty($id)){
     $param = array('id' => $id);
-    $context['unityediturl'] .= '?id='. $id;
+    $pageContext['unityediturl'] .= '?id='. $id;
 
     $unity = (array) Unity::getById($id);
 
@@ -49,18 +49,18 @@ if(!empty($id)){
         print_error(get_string('errornounityid', 'local_opsbasics'));
     }
 
-    $context['unity'] = $unity;
+    $pageContext['unity'] = $unity;
 }
 else {
     print_error(get_string('errornounityid', 'local_opsbasics'));
 }
 
 
-
+$context = context_system::instance();
 $PAGE->set_url('/local/opsbasics/unity/view.php', $param);
 $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
 $PAGE->set_heading(get_string('unityheading', 'local_opsbasics'));
-$PAGE->set_context(context_system::instance());
+$PAGE->set_context($context);
 
 if (has_capability('local/opsbasics:managefranchising', $context)) {
     echo $OUTPUT->header();

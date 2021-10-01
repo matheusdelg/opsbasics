@@ -29,24 +29,25 @@ require_login();
 
 $id = optional_param('id', 0, PARAM_INT);
 
-$context = [
+$pageContext = [
     'dashboardurl' => get_string('dashboardurl', 'local_opsbasics'),
     'clientediturl' => get_string('clientediturl', 'local_opsbasics'),
 ];
 
 $param = array();
 
+$context = context_system::instance();
 $PAGE->set_url('/local/opsbasics/client/view.php', $param);
 $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
 $PAGE->set_heading(get_string('clientheading', 'local_opsbasics'));
-$PAGE->set_context(context_system::instance());
+$PAGE->set_context($context);
 
 $PAGE->navbar->add(get_string('clientheading', 'local_opsbasics'),
                    get_string('clientediturl', 'local_opsbasics'));
 
 if(!empty($id)){
     $param = array('id' => $id);
-    $context['clientediturl'] .= '?id='. $id;
+    $pageContext['clientediturl'] .= '?id='. $id;
 
     $client = (array) Client::getById($id);
     $client['create_timestamp'] = Client::convertTimestamp($client);
@@ -55,7 +56,7 @@ if(!empty($id)){
         print_error(get_string('errornoclientid', 'local_opsbasics'));
     }
 
-    $context['client'] = $client;
+    $pageContext['client'] = $client;
 }
 else {
     print_error(get_string('errornoclientid', 'local_opsbasics'));

@@ -119,7 +119,7 @@
 
  class CafWebService extends WebService {
 
-    public function __construct($domain, $token) {
+    public function __construct() {
 
         // Funções usadas no WebService do CAF:
         $labels = [
@@ -133,7 +133,8 @@
             'core_webservice_get_site_info'     => 'serviceshortnames',
         ];
 
-        parent::__construct($domain, $token, $labels);
+        parent::__construct(get_config('local_opsbasics', 'caf_domain'),
+                            get_config('local_opsbasics', 'caf_token'), $labels);
     }
 
     /**

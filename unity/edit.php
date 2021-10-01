@@ -33,18 +33,18 @@ if(!empty($id)) {
     $param = ['id' => $id];
 }
 
+$context = context_system::instance();
 $PAGE->set_url('/local/opsbasics/unity/view.php', $param);
 $PAGE->set_title(get_string('plugintitle', 'local_opsbasics'));
 $PAGE->set_heading(get_string('unityheading', 'local_opsbasics'));
-$PAGE->set_context(context_system::instance());
+$PAGE->set_context($context);
 
-$context = [
+/*$context = [
     'dashboardurl' => get_string('dashboardurl', 'local_opsbasics'),
     'unityediturl' => get_string('unityediturl', 'local_opsbasics'),
-];
+];*/
 
 $mform = new UnityForm($id);
-
 
 if (!empty($id)) {
     $mform->set_data(Unity::getById($id));

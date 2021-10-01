@@ -29,6 +29,7 @@ $string['unityviewurl'] = '/local/opsbasics/unity/view.php';
 $string['dashboardurl'] = '/local/opsbasics/index.php';
 
 $string['plugintitle'] = 'Operações CODE8734';
+$string['pluginname'] = '⚙️ Operações CODE8734';
 $string['plugindescription'] = 'Crie, implante e gerencie todas as unidades CODE8734 com apenas um clique. Selecione uma das opções abaixo para iniciar uma operação.';
 
 $string['pluginactions'] = "Ações";
@@ -92,3 +93,15 @@ $string['tooltipedit'] = 'Editar';
 $string['tooltiponboarding'] = 'Onboarding';
 $string['tooltipdelete'] = 'Excluir';
 $string['formrequired'] = 'Este campo é obrigatório.';
+
+$string['configheader'] = 'Tokens da API (webservices)';
+$string['caftoken'] = 'Token do Webservice do CAF';
+$string['desccaftoken'] = 'Token para realizar a chamada do webservice deste site. O Token pode ser obtido após a configuração do webservice neste site.';
+$string['cafdomain'] = 'URL do CAF';
+$string['desccafdomain'] = 'URL no formato "https://subdominio.dominio.com" do CAF (este site)';
+$string['defaultcafdomain'] = $CFG->httpswwwroot;
+$string['avatoken'] = 'Token do Webservice do AVA';
+$string['descavatoken'] = 'Token para realizar a chamada do webservice do AVA. O Token pode ser obtido após a configuração do webservice no AVA.';
+$string['avadomain'] = 'URL do AVA';
+$string['descavadomain'] = 'URL no formato "https://subdominio.dominio.com" do AVA';
+$string['defaultavadomain'] = 'https://ava.code8734.com.br';
