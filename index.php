@@ -43,6 +43,7 @@ $pageContext = [
 
     'startimp'  => get_string('startimp',  'local_opsbasics'),
     'startimp_description' => get_string('startimp_description', 'local_opsbasics'),
+    'startimpurl' => get_string('startimplurl', 'local_opsbasics'),
     'pluginactions' => get_string('pluginactions', 'local_opsbasics'),
 
     'tooltipview' => get_string('tooltipview', 'local_opsbasics'),

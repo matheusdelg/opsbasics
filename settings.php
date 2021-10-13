@@ -42,4 +42,7 @@ if ($hassiteconfig) { // needs this condition or there is error on login page
     get_string('descavatoken', 'local_opsbasics'), false, PARAM_TEXT));
     $settings->add(new admin_setting_configtext('local_opsbasics/ava_domain', get_string('avadomain', 'local_opsbasics'),
     get_string('descavadomain', 'local_opsbasics'), get_string('defaultavadomain', 'local_opsbasics'), PARAM_TEXT));
+
+    $settings->add(new admin_setting_configtext('local_opsbasics/std_pswd', get_string('stdpswd', 'local_opsbasics'),
+    get_string('descstdpswd', 'local_opsbasics'), false, PARAM_TEXT));
 }

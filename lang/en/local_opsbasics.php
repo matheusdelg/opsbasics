@@ -22,15 +22,16 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['plugintitle'] = 'Operações CODE8734';
+$string['pluginname'] = '⚙️ Operações CODE8734';
+$string['plugindescription'] = 'Crie, implante e gerencie todas as unidades CODE8734 com apenas um clique. Selecione uma das opções abaixo para iniciar uma operação.';
+
 $string['clientediturl'] = '/local/opsbasics/client/edit.php';
 $string['clientviewurl'] = '/local/opsbasics/client/view.php';
 $string['unityediturl'] = '/local/opsbasics/unity/edit.php';
 $string['unityviewurl'] = '/local/opsbasics/unity/view.php';
 $string['dashboardurl'] = '/local/opsbasics/index.php';
-
-$string['plugintitle'] = 'Operações CODE8734';
-$string['pluginname'] = '⚙️ Operações CODE8734';
-$string['plugindescription'] = 'Crie, implante e gerencie todas as unidades CODE8734 com apenas um clique. Selecione uma das opções abaixo para iniciar uma operação.';
+$string['startimplurl'] = '/local/opsbasics/implantation.php';
 
 $string['pluginactions'] = "Ações";
 $string['dashboardheading'] = 'Operações CODE8734';
@@ -73,8 +74,14 @@ $string['unitysappswdped'] = 'Senha SAP pedagógico';
 $string['unityaddedsuccess'] = 'Unidade adicionada/editada com sucesso na base de dados.';
 $string['unitysizes'] = ['Intinerante', 'Compacta', 'Mini', 'Mega'];
 
+$string['implantationinfo'] = 'Associar dados';
+$string['selectunity'] = 'Selecione a unidade CODE8734';
+$string['selectclient'] = 'Selecione o franqueado';
+
+$string['implantationheading'] = 'Implantação de unidade';
 $string['startimp'] = 'Iniciar implantação';
 $string['startimp_description'] = 'Mãos a obra! Escolha esta opção para iniciar os processos de liberação da nova unidade CODE8734. É preciso registrar o(s) franqueado(s) e a unidade em outras opções desta aplicaçao.';
+$string['implantationsuccess'] = 'Implantação de unidade terminada com êxito.';
 
 $string['clientheading'] = 'Franqueados CODE8734';
 $string['client_description'] = 'Crie ou edite as informações de um franqueado CODE8734 neste formulário.';
@@ -105,3 +112,5 @@ $string['descavatoken'] = 'Token para realizar a chamada do webservice do AVA. O
 $string['avadomain'] = 'URL do AVA';
 $string['descavadomain'] = 'URL no formato "https://subdominio.dominio.com" do AVA';
 $string['defaultavadomain'] = 'https://ava.code8734.com.br';
+$string['stdpswd'] = 'Senha padrão';
+$string['descstdpswd'] = 'Senha inicial de usuários do AVA/CAF';

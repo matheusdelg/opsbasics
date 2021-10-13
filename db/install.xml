@@ -20,6 +20,7 @@
         <FIELD NAME="phone_number" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Número de telefone para contato"/>
         <FIELD NAME="client_mail" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="E-mail CODE8734 do franqueado"/>
         <FIELD NAME="create_timestamp" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Data do cadastro do franqueado no formato YYY-MM-DD hh:mm:ss"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="ID do usuário na tabela 'caf_user'"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
