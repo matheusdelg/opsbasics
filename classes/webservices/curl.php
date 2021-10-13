@@ -28,8 +28,6 @@ class MyCurl{
  
     public function post($url, $params){
 
-        var_dump($params);
-
         $curl_params = $this->format_params($params);
         $ch = curl_init();
 
@@ -40,7 +38,6 @@ class MyCurl{
 
         header('Content-Type: text/plain');
         $response = curl_exec($ch);
-        echo "Done!\n\n$response\n\n";
 
         return $response;
     }

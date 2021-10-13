@@ -27,8 +27,21 @@ require_once("webservices/avawebservice.php");
 
  class Operations {
 
+    /**
+     * Função principal da classe. Organiza as chamadas de métodos necessários para
+     * a implantação (criar usuários, cadastrar treinamentos e gerar coortes no AVA).
+     * 
+     * @param [object] $form_data       Dados recebidos do formulário.
+     */
     public static function startImplantation($form_data) {
-        $user_response  = Operations::createUser($form_data);
+        global $DB;
+
+        $user_data = $DB->get_record('opsbasics_clients', ['id' => $form_data->client]);
+
+       // if(!isset($user_data->user_id)) {
+            $user_response  = Operations::createUser($form_data);
+       // }   
+        
         $enrol_response = Operations::enrolUser($form_data);
     }
 
@@ -50,32 +63,39 @@ require_once("webservices/avawebservice.php");
         $DB->set_field('opsbasics_clients', 'user_id', $user_id, ['id' => $user_data->id]);
     }
 
+    /**
+     * O Webservice retorna um XML contendo o id do novo usuário. Este método captura
+     * o ID recebido.
+     */
     public static function getUserIdFromResponse($response) {
         $xml_response = simplexml_load_string($response);
 
-        var_dump($xml_response); die;
+        return (string) $xml_response->MULTIPLE->SINGLE->children()[0]->VALUE;
     }
 
+    /**
+     * Cadastra usuário criado nos treinamentos do CAF
+     */
     public static function enrolUser($form_data) {
         global $DB;
 
-        $user_data = $DB->get_record('opsbasics_clients', ['username' => $form_data->client]);
+        $user_data = $DB->get_record('opsbasics_clients', ['id' => $form_data->client]);
 
         $courses = [
             (object) [
-                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => $user_data->id,
-                'courseid' => 7
+                'roleid'   => "5", // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
+                'userid'   => $user_data->user_id,
+                'courseid' => "7"
             ],
             (object) [
-                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => $user_data->id,
-                'courseid' => 8
+                'roleid'   => "5", // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
+                'userid'   => $user_data->user_id,
+                'courseid' => "8"
             ],
             (object) [
-                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => $user_data->id,
-                'courseid' => 9
+                'roleid'   => "5", // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
+                'userid'   => $user_data->user_id,
+                'courseid' => "9"
             ]
         ];
 
