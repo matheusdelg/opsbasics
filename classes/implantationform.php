@@ -58,6 +58,26 @@ class ImplantationForm extends moodleform {
         $mform->setType('client', PARAM_NOTAGS);                   
         $mform->addRule('client', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server');
         
+
+        // Lista de treinamentos:
+        $courses = array_values(
+            $DB->get_records_sql('SELECT id, fullname FROM {course}')
+        );
+        $course_list = [];
+
+        foreach($courses as $c) {
+            $course_list[$c->id] = $c->fullname;
+        }
+
+        $options = array(                                                                                                           
+            'multiple' => true,                                                  
+            'noselectionstring' => get_string('select', 'local_opsbasics'),                                                                
+        );     
+        
+        $mform->addElement('autocomplete',  'trainings',  get_string('selecttrainings', 'local_opsbasics'), $course_list, $options);
+        $mform->setType('trainings', PARAM_NOTAGS);                   
+        $mform->addRule('trainings', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server');
+        
         $this->add_action_buttons(true, get_string('startimp', 'local_opsbasics'));
     }
 

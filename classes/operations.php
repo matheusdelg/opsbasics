@@ -36,31 +36,39 @@ require_once("webservices/avawebservice.php");
     public static function startImplantation($form_data) {
         global $DB;
 
-        $user_data = $DB->get_record('opsbasics_clients', ['id' => $form_data->client]);
-
-       // if(!isset($user_data->user_id)) {
-            $user_response  = Operations::createUser($form_data);
-       // }   
+        $user_data   = $DB->get_record('opsbasics_clients', ['id' => $form_data->client]);
+        $unity_data  = $DB->get_record('opsbasics_unities', ['id' => $form_data->unity]);
         
-        $enrol_response = Operations::enrolUser($form_data);
+        list($insql, $inparams) = $DB->get_in_or_equal($form_data->trainings);
+        $sql = "SELECT id,fullname FROM {course} WHERE id $insql";
+        $course_data = $DB->get_records_sql($sql, $inparams);
+
+        $user_response  = Operations::createUser($user_data, $unity_data);
+        $enrol_response = Operations::enrolUser($user_response, $course_data);
+     
+        // Operations::bindClientUnity($user_data, $unity_data);
     }
 
     /**
      * Cria usuário (FRA, PED, COM) no CAF e no AVA.
      */
-    public static function createUser($form_data){
+    public static function createUser($user_data, $unity_data){
         global $DB;
 
-        $user_data  = $DB->get_record('opsbasics_clients', ['id' => $form_data->client]);
-        $unity_data = $DB->get_record('opsbasics_unities', ['id' => $form_data->unity]);
-
-        $user = Operations::addUserFields($user_data, $unity_data, $std_pswd);
+        $user = Operations::addUserFields($user_data, $unity_data);
         
         $caf_ws = new CafWebService();
         $response = $caf_ws->createUser($user);
 
         $user_id = Operations::getUserIdFromResponse($response);
-        $DB->set_field('opsbasics_clients', 'user_id', $user_id, ['id' => $user_data->id]);
+        if (isset($user_id)) {
+            $DB->set_field('opsbasics_clients', 'user_id', $user_id, ['id' => $user_data->id]);
+            return $user_id;
+        }
+        else {
+            $client_data = $DB->get_record('opsbasics_clients', ['id' => $user_data->id]);
+            return $client_data->user_id;
+        }
     }
 
     /**
@@ -70,34 +78,28 @@ require_once("webservices/avawebservice.php");
     public static function getUserIdFromResponse($response) {
         $xml_response = simplexml_load_string($response);
 
-        return (string) $xml_response->MULTIPLE->SINGLE->children()[0]->VALUE;
+        $value = NULL;
+        if(isset($xml_response->MULTIPLE)) {
+            $value = (string) $xml_response->MULTIPLE->SINGLE->children()[0]->VALUE;
+        }
+        return $value;
     }
 
     /**
-     * Cadastra usuário criado nos treinamentos do CAF
+     * Cadastra usuário criado nos treinamentos do CAF.
      */
-    public static function enrolUser($form_data) {
-        global $DB;
+    public static function enrolUser($user_id, $course_data) {
 
-        $user_data = $DB->get_record('opsbasics_clients', ['id' => $form_data->client]);
-
-        $courses = [
-            (object) [
-                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => intval($user_data->user_id),
-                'courseid' => 7
-            ],
-            (object) [
-                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => intval($user_data->user_id),
-                'courseid' => 8
-            ],
-            (object) [
-                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => intval($user_data->user_id),
-                'courseid' => 9
-            ]
-        ];
+        $courses = array();
+        foreach ($course_data as $course) {
+            array_push($courses, 
+                (object) [
+                    'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
+                    'userid'   => intval($user_id),
+                    'courseid' => $course->id
+                ]
+            );
+        }
 
         $caf_ws = new CafWebService();
         return $caf_ws->enrolUser($courses);
@@ -106,7 +108,7 @@ require_once("webservices/avawebservice.php");
     /**
      *  Cria um objeto válido PHP para inserir no BD do Moodle (usuários)
      */
-    public static function addUserFields($user_data, $unity_data, $std_pswd) {
+    public static function addUserFields($user_data, $unity_data) {
 
         $user_name = explode(" ", $user_data->full_name);
         $first_name = $user_name[0];

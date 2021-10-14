@@ -100,6 +100,8 @@ $string['tooltipedit'] = 'Editar';
 $string['tooltiponboarding'] = 'Onboarding';
 $string['tooltipdelete'] = 'Excluir';
 $string['formrequired'] = 'Este campo é obrigatório.';
+$string['select'] = 'Selecione';
+$string['selecttrainings'] = 'Inscrever nos treinamentos';
 
 $string['configheader'] = 'Tokens da API (webservices)';
 $string['caftoken'] = 'Token do Webservice do CAF';

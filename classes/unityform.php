@@ -56,7 +56,8 @@ class UnityForm extends moodleform {
         // Código da unidade:
         $mform->addElement('text',  'unity_code',  get_string('unitycode', 'local_opsbasics'));
         $mform->setType('unity_code', PARAM_NOTAGS);                   
-        $mform->setDefault('unity_code', '');   
+        $mform->setDefault('unity_code', '00xxy000');   
+        $mform->addRule('name', get_string('formrequired', 'local_opsbasics'), 'required', null, 'server');
 
         // Endereço:
         $mform->addElement('text',  'address',  get_string('unityaddress', 'local_opsbasics'));
