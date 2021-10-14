@@ -55,6 +55,6 @@ class CafWebService extends WebServices {
     }  
 
     public function enrolUser($courses) {
-        return $this->_call('enrol_manual_enrol_users', $courses, 'MULTIPLE');
+        return $this->_call('enrol_manual_enrol_users', $courses, 'SINGLE');
     }
 }

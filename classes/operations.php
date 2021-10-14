@@ -83,24 +83,24 @@ require_once("webservices/avawebservice.php");
 
         $courses = [
             (object) [
-                'roleid'   => "5", // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => $user_data->user_id,
-                'courseid' => "7"
+                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
+                'userid'   => intval($user_data->user_id),
+                'courseid' => 7
             ],
             (object) [
-                'roleid'   => "5", // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => $user_data->user_id,
-                'courseid' => "8"
+                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
+                'userid'   => intval($user_data->user_id),
+                'courseid' => 8
             ],
             (object) [
-                'roleid'   => "5", // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
-                'userid'   => $user_data->user_id,
-                'courseid' => "9"
+                'roleid'   => 5, // student: https://stackoverflow.com/questions/52510849/how-to-get-roleid-for-enrol-user-on-moodle-web-service
+                'userid'   => intval($user_data->user_id),
+                'courseid' => 9
             ]
         ];
 
         $caf_ws = new CafWebService();
-        var_dump($caf_ws->enrolUser($courses)); die;
+        return $caf_ws->enrolUser($courses);
     }
 
     /**
